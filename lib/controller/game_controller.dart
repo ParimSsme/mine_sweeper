@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:get/get.dart';
 
 class GameController extends GetxController {
@@ -5,7 +7,7 @@ class GameController extends GetxController {
   final int numberInEachRow = 9;
 
   // List of bombs and square statuses
-  List<int> bombLocation = [4, 5, 6, 41, 42, 43, 61];
+  List<int> bombLocation = [];
   RxList<List<dynamic>> squareStatus = RxList.filled(9 * 9, [0, false]);
   RxBool bombsRevealed = false.obs;
 
@@ -20,7 +22,26 @@ class GameController extends GetxController {
     for (int i = 0; i < numberOfSquares; i++) {
       squareStatus[i] = [0, false];
     }
+
+    generateBombLocations();
+
     _scanBombs();
+  }
+
+  void generateBombLocations() {
+    Random random = Random();
+
+    /// Generate unique bomb locations until we reach the desired count
+    /// bomb count is 7
+    while (bombLocation.length < 7) {
+
+      /// 82 is grid size
+      int randomNumber = random.nextInt(82);
+
+      if (!bombLocation.contains(randomNumber)) {
+        bombLocation.add(randomNumber);
+      }
+    }
   }
 
   void restartGame() {
@@ -102,5 +123,3 @@ class GameController extends GetxController {
     // Trigger win message or logic here
   }
 }
-
-
