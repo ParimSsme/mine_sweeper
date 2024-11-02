@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyBomb extends StatelessWidget {
+class BombTile extends StatelessWidget {
   bool revealed;
   final function;
-  MyBomb({super.key, required this.revealed, this.function});
+  BombTile({
+    super.key,
+    required this.revealed,
+    this.function,
+  });
 
   @override
   Widget build(BuildContext context) {
