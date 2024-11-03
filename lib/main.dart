@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'controller/game_controller.dart';
-import 'ui/home_page.dart';
+import 'package:mine_sweeper/presentation/bindings/game_binding.dart';
+import 'package:mine_sweeper/presentation/pages/game_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  final GameController controller = Get.put(GameController());
-
-  MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Mine Sweeper',
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      initialBinding: GameBinding(),
+      home: const GamePage(),
     );
   }
 }
+
+

@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" transform="translate(32.0001 32) rotate(-180)" fill="#BFBFBF"/>
+<path d="M32.0001 4L28.0001 4L32.0001 0L32.0001 4Z" fill="#818181"/>
+<path d="M32.0001 28L28.0001 28L32.0001 32L32.0001 28Z" fill="#818181"/>
+<rect x="32.0001" y="28" width="4" height="24" transform="rotate(-180 32.0001 28)" fill="#818181"/>
+<path d="M28.0001 32L28.0001 28L32.0001 32L28.0001 32Z" fill="#818181"/>
+<path d="M4.00006 32L4.00006 28L6.10352e-05 32L4.00006 32Z" fill="#818181"/>
+<rect x="4.00006" y="32" width="4" height="24" transform="rotate(-90 4.00006 32)" fill="#818181"/>
+<path d="M6.10352e-05 28L4.00006 28L6.05871e-05 32L6.10352e-05 28Z" fill="white"/>
+<path d="M6.10352e-05 4L4.00006 4L6.14832e-05 0L6.10352e-05 4Z" fill="white"/>
+<rect x="6.10352e-05" y="4" width="4" height="24" fill="white"/>
+<path d="M4.00006 0L4.00006 4L6.10352e-05 -3.00516e-07L4.00006 0Z" fill="white"/>
+<path d="M28.0001 0L28.0001 4L32.0001 3.00516e-07L28.0001 0Z" fill="white"/>
+<rect x="28.0001" width="4" height="24" transform="rotate(90 28.0001 0)" fill="white"/>
+</svg>
