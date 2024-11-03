@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: GameBinding(),
-      home: const GamePage(),
+      home: GamePage(),
     );
   }
 }

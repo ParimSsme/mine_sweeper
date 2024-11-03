@@ -11,4 +11,5 @@ class AppImageAssets {
   static const String seven = '$_basePath/7.jpg';
   static const String eight = '$_basePath/8.png';
   static const String bomb = '$_basePath/bomb.png';
+  static const String flag = '$_basePath/flag.png';
 }
