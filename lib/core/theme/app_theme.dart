@@ -12,7 +12,7 @@ class AppTheme {
       color: AppColors.primary,
       titleTextStyle: TextStyle(
         color: Colors.white,
-        fontSize: 20,
+        fontSize: 28,
         fontWeight: FontWeight.bold,
       ),
     ),

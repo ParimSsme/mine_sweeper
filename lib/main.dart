@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mine_sweeper/presentation/bindings/game_binding.dart';
-import 'package:mine_sweeper/presentation/pages/game_page.dart';
+import 'package:mine_sweeper/core/theme/app_theme.dart';
+import 'core/routes/app_routes.dart';
+import 'core/services/game_service.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Get.lazyPut<GameService>(() => GameService());
+
   runApp(const MyApp());
 }
 
@@ -13,8 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: GameBinding(),
-      home: GamePage(),
+      theme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.selectLevel,
+      defaultTransition: Transition.circularReveal,
+      getPages: AppRoutes.routes,
     );
   }
 }
