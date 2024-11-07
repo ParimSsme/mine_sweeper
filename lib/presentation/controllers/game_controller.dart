@@ -131,8 +131,9 @@ class GameController extends GetxController {
   }
 
   void handleTap(int position) {
-    if (gameState.value != GameState.ongoing)
+    if (gameState.value != GameState.ongoing || flaggedSquares[position]) {
       return; // Ignore taps if game is over
+    }
 
     int rowNumber = (position / columnCount).floor();
     int columnNumber = position % columnCount;
