@@ -66,6 +66,25 @@ class GameController extends GetxController {
     elapsedTime.value = 0;
   }
 
+  void resetGame(){
+    revealedSquares.clear();
+    flaggedSquares.clear();
+    revealedSquares.refresh();
+    flaggedSquares.refresh();
+
+    gameState.value = GameState.ongoing;
+
+    resetTimer();
+
+    startTimer();
+
+    revealedSquares.value = List.generate(rowCount * columnCount, (_) => false);
+    flaggedSquares.value = List.generate(rowCount * columnCount, (_) => false);
+    squaresLeft.value = rowCount * columnCount;
+    flagsLeft = bombCount.value;
+
+  }
+
   void startNewGame() {
     // Retrieve game level from GameService
     GameService gameService = Get.find<GameService>();
@@ -82,7 +101,6 @@ class GameController extends GetxController {
     );
     revealedSquares.value = List.generate(rowCount * columnCount, (_) => false);
     flaggedSquares.value = List.generate(rowCount * columnCount, (_) => false);
-    // bombCount.value = board.expand((row) => row).where((square) => square.hasBomb).length;
     squaresLeft.value = rowCount * columnCount;
     flagsLeft = bombCount.value;
   }

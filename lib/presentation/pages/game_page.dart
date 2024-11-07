@@ -141,6 +141,18 @@ class GamePage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: Obx(
+        () => FloatingActionButton(
+          onPressed: controller.isGameEnded()
+              ? () {
+                  controller.resetGame();
+                }
+              : null,
+          backgroundColor: controller.isGameEnded() ? Colors.blue : Colors.grey,
+          tooltip: 'New Game',
+          child: const Icon(Icons.refresh),
+        ),
+      ),
     );
   }
 }
