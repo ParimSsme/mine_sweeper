@@ -53,11 +53,13 @@ class GamePage extends StatelessWidget {
                             return SvgPicture.asset(
                               AppSvgAssets.happyEmoji,
                               height: 50,
+                              width: 60,
                             );
                           case GameState.lost:
                             return SvgPicture.asset(
                               AppSvgAssets.angryEmoji,
-                              height: 60,
+                              height: 50,
+                              width: 60,
                             );
                           default:
                             return SvgPicture.asset(
