@@ -2,25 +2,29 @@ import '../models/board_square.dart';
 import 'dart:math';
 
 class GameRepository {
-  final int rowCount;
-  final int columnCount;
-  final int bombProbability;
+  late final int rowCount;
+  late final int columnCount;
+  late final int bombProbability;
   final int maxProbability;
 
   GameRepository({
-    required this.rowCount,
-    required this.columnCount,
-    this.bombProbability = 3,
     this.maxProbability = 15,
   });
 
-  List<List<BoardSquare>> initializeBoard() {
+  List<List<BoardSquare>> initializeBoard({
+    required int bombCount,
+    required int rowCount,
+    required int columnCount,
+  }) {
     List<List<BoardSquare>> board = List.generate(rowCount, (i) {
       return List.generate(columnCount, (j) {
         return BoardSquare();
       });
     });
 
+    bombProbability = bombCount;
+    this.rowCount = rowCount;
+    this.columnCount = columnCount;
     // Add bombs to the board
     Random random = Random();
     for (int i = 0; i < rowCount; i++) {

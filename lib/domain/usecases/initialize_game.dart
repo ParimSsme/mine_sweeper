@@ -6,7 +6,15 @@ class InitializeGame {
 
   InitializeGame(this.repository);
 
-  List<List<BoardSquare>> call() {
-    return repository.initializeBoard();
+  List<List<BoardSquare>> call({
+    required int bombCount,
+    required int rowCount,
+    required int columnCount,
+  }) {
+    return repository.initializeBoard(
+      bombCount: bombCount,
+      rowCount: rowCount,
+      columnCount: columnCount,
+    );
   }
 }
