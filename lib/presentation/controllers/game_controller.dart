@@ -107,14 +107,24 @@ class GameController extends GetxController {
 
   // Toggle flag on a cell
   void toggleFlag(int position) {
-    // if (gameState.value != GameState.ongoing || revealedSquares[position]) return;
+    if (gameState.value != GameState.ongoing || revealedSquares[position]) return;
+
+    flaggedSquares[position] = !flaggedSquares[position];
+    int row = (position / columnCount).floor();
+    int col = position % columnCount;
 
     if (flaggedSquares[position]) {
-      flaggedSquares[position] = false;
-      flagsLeft++;
-    } else if (flagsLeft > 0) {
-      flaggedSquares[position] = true;
-      flagsLeft--;
+      if (board[row][col].hasBomb) {
+        bombCount.value--;
+      } else {
+        squaresLeft.value--;
+      }
+    } else {
+      if (board[row][col].hasBomb) {
+        bombCount.value++;
+      } else {
+        squaresLeft.value++;
+      }
     }
 
     update();
