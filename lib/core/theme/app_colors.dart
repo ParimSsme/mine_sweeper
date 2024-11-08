@@ -10,21 +10,4 @@ class AppColors {
   static const Color error = Colors.red;
   static const Color textPrimary = Colors.white;
   static const Color textSecondary = Colors.white70;
-
-  static const Gradient gradient = LinearGradient(
-      colors: [
-        Color(0xFF2737CF),
-        Color(0xFF6562FB),
-      ],
-      stops: [0.1, 0.9]
-  );
-
-  static final Gradient disabledGradient = LinearGradient(
-      colors: [
-        Colors.grey.shade400,
-        Colors.grey.shade400,
-      ],
-      stops: [0.1, 0.9]
-  );
-
 }

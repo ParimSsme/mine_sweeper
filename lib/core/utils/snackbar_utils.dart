@@ -5,8 +5,12 @@ import 'package:get/get.dart';
 import '../theme/app_colors.dart';
 
 class SnackbarUtils {
-  // Display a success snackbar
-  static void showSuccessSnackbar(String message, {String title = "Success"}) {
+
+  /// Display a success snackbar
+  static void showSuccessSnackbar({
+    String title = "Success",
+    required String message,
+  }) {
     final context = Get.context;
     if (context != null) {
       Alerter.show(
@@ -22,8 +26,11 @@ class SnackbarUtils {
     }
   }
 
-  // Display an error snackbar
-  static void showErrorSnackbar(String message, {String title = "Error"}) {
+  /// Display an error snackbar
+  static void showErrorSnackbar({
+    String title = "Error",
+    required String message,
+  }) {
     final context = Get.context;
     if (context != null) {
       Alerter.show(

@@ -11,7 +11,7 @@ class AppRoutes {
   static List<GetPage> routes = [
     GetPage(
       name: game,
-      page: () => GamePage(),
+      page: () => const GamePage(),
       binding: GameBinding(),
     ),
     GetPage(

@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mine_sweeper/core/routes/app_routes.dart';
 import 'package:mine_sweeper/presentation/controllers/select_level_controller.dart';
-
-import '../../core/services/game_service.dart';
 import '../../domain/enums/game_level.dart';
 
 class SelectLevelPage extends StatelessWidget {
@@ -13,7 +7,6 @@ class SelectLevelPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GameService gameService = Get.find<GameService>();
 
     return Scaffold(
       appBar: AppBar(
