@@ -28,4 +28,12 @@ extension GameLevelExtension on GameLevel {
       case GameLevel.hard: return 5;
     }
   }
+
+  String get levelName {
+    switch (this) {
+      case GameLevel.easy: return 'Easy';
+      case GameLevel.medium: return 'Medium';
+      case GameLevel.hard: return 'Hard';
+    }
+  }
 }

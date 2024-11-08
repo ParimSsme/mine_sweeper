@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mine_sweeper/core/assets/app_image_assets.dart';
 import 'package:mine_sweeper/core/assets/app_svg_assets.dart';
+import 'package:mine_sweeper/domain/enums/game_level.dart';
 import 'package:mine_sweeper/presentation/widgets/number_tile.dart';
 import '../../domain/enums/game_state.dart';
 import '../controllers/game_controller.dart';
@@ -16,6 +17,47 @@ class GamePage extends StatelessWidget {
     final GameController controller = Get.find<GameController>();
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(controller.level.levelName),
+        centerTitle: true,
+        leadingWidth: 70,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Obx(
+              () => IconButton(
+                onPressed: controller.isGameEnded()
+                    ? () {
+                        controller.resetGame();
+                      }
+                    : null,
+                icon: Icon(
+                  Icons.refresh,
+                  size: 35.0,
+                  color: controller.isGameEnded() ? Colors.white : Colors.white24,
+                ),
+              ),
+            ),
+          ),
+        ],
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Obx(
+            () => IconButton(
+              onPressed: controller.isGameEnded()
+                  ? () {
+                controller.onBackClicked();
+              }
+                  : null,
+              icon: Icon(
+                Icons.arrow_back_ios_new_outlined,
+                size: 30.0,
+                color: controller.isGameEnded() ? Colors.white : Colors.white24,
+              ),
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Stack(
           children: [
@@ -141,18 +183,6 @@ class GamePage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-      floatingActionButton: Obx(
-        () => FloatingActionButton(
-          onPressed: controller.isGameEnded()
-              ? () {
-                  controller.resetGame();
-                }
-              : null,
-          backgroundColor: controller.isGameEnded() ? Colors.blue : Colors.grey,
-          tooltip: 'New Game',
-          child: const Icon(Icons.refresh),
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:confetti/confetti.dart';
 import 'package:get/get.dart';
+import 'package:mine_sweeper/core/routes/app_routes.dart';
 import '../../core/services/game_service.dart';
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/models/board_square.dart';
@@ -14,6 +15,8 @@ class GameController extends GetxController {
 
   final ConfettiController confettiController = ConfettiController(duration: const Duration(seconds: 3));
   GameController({required this.initializeGame});
+
+  GameLevel level = GameService.to.getGameLevel;
 
   var board = <List<BoardSquare>>[].obs;
   var revealedSquares = <bool>[].obs;
@@ -37,6 +40,10 @@ class GameController extends GetxController {
     super.onInit();
     startTimer();
     startNewGame();
+  }
+
+  void onBackClicked() {
+    Get.offNamed(AppRoutes.selectLevel);
   }
 
   bool isGameEnded () {
@@ -86,9 +93,6 @@ class GameController extends GetxController {
   }
 
   void startNewGame() {
-    // Retrieve game level from GameService
-    GameService gameService = Get.find<GameService>();
-    GameLevel level = gameService.getGameLevel;
 
     rowCount = level.rowCount;
     columnCount = level.columnCount;
