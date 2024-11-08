@@ -11,6 +11,8 @@ import '../../domain/enums/game_state.dart';
 import '../../domain/usecases/initialize_game.dart';
 
 class GameController extends GetxController {
+  static GameController get to => Get.find();
+
   final InitializeGame initializeGame;
 
   final ConfettiController confettiController = ConfettiController(duration: const Duration(seconds: 3));

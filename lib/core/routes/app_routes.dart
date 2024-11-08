@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mine_sweeper/presentation/bindings/game_binding.dart';
-import 'package:mine_sweeper/presentation/pages/game_page.dart';
+import 'package:mine_sweeper/presentation/pages/game_page/game_page.dart';
 import 'package:mine_sweeper/presentation/pages/select_level_page.dart';
 import '../../presentation/bindings/select_level_binding.dart';
 
